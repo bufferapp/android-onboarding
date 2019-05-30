@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.buffer.android.onboarding">
+
+    <application>
+        <activity
+            android:name=".OnboardingActivity"
+            android:theme="@style/OnBoardingStyle"/>
+    </application>
+
+</manifest>
