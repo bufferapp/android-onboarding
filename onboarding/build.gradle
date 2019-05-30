@@ -59,10 +59,11 @@ dependencies {
 }
 
 publish {
+    repoName = 'Maven'
     userOrg = 'buffer'
     groupId = 'org.buffer.android'
-    artifactId = 'bintray-release'
-    publishVersion = '0.1'
+    artifactId = 'buffer-onboarding'
+    publishVersion = '0.2'
     desc = 'Onboarding component used in Buffer android apps'
     website = 'https://github.com/bufferapp/android-onboarding'
 }

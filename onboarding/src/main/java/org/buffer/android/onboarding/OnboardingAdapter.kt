@@ -6,13 +6,16 @@ import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import javax.inject.Inject
 
-class OnboardingAdapter @Inject constructor(val context: Context) : PagerAdapter() {
+class OnboardingAdapter @Inject constructor(
+    private val context: Context,
+    private val flipLayout: Boolean
+) : PagerAdapter() {
 
     var steps: List<OnboardingStep> = emptyList()
 
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val onboardingStep = steps[position]
-        val onboardingView = OnboardingView(context)
+        val onboardingView = OnboardingView(context, flipLayout = flipLayout)
         onboardingView.setOnboardingStep(onboardingStep)
         collection.addView(onboardingView)
         return onboardingView

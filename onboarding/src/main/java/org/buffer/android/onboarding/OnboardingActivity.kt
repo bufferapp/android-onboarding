@@ -3,30 +3,48 @@ package org.buffer.android.onboarding
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_onboarding.button_existing_user
-import kotlinx.android.synthetic.main.activity_onboarding.button_new_user
-import kotlinx.android.synthetic.main.activity_onboarding.pager_onboarding
-import kotlinx.android.synthetic.main.activity_onboarding.view_indicator
+import kotlinx.android.synthetic.main.activity_onboarding.*
 import javax.inject.Inject
 
 class OnboardingActivity : AppCompatActivity() {
 
-    @Inject lateinit var onboardingAdapter: OnboardingAdapter
     @Inject lateinit var onboardingCoordinator: OnboardingNavigator
     @Inject lateinit var onboardingTracker: OnboardingAnalytics
 
+    private lateinit var onboardingAdapter: OnboardingAdapter
     private var hasTrackedOnboardingInteraction = false
 
     companion object {
 
-        const val EXTRA_ONBOARDING_STEPS = "org.buffer.android.onboarding.OnboardingActivity"
+        const val EXTRA_ONBOARDING_STEPS =
+            "org.buffer.android.onboarding.OnboardingActivity.EXTRA_ONBOARDING_STEPS"
+        const val EXTRA_FLIP_LAYOUT =
+            "org.buffer.android.onboarding.OnboardingActivity.EXTRA_REVERSE_LAYOUT"
+        const val EXTRA_LOGO_RESOURCE =
+            "org.buffer.android.onboarding.OnboardingActivity.EXTRA_LOGO_RESOURCE"
 
-        fun getStartIntent(context: Context, steps: ArrayList<OnboardingStep>): Intent {
+        fun getStartIntent(
+            context: Context,
+            steps: ArrayList<OnboardingStep>
+        ): Intent {
+            return getStartIntent(context, steps, -1, false)
+        }
+
+        fun getStartIntent(
+            context: Context,
+            steps: ArrayList<OnboardingStep>,
+            @DrawableRes logoResource: Int,
+            flipLayout: Boolean = true
+        ): Intent {
             return Intent(context, OnboardingActivity::class.java).apply {
                 putParcelableArrayListExtra(EXTRA_ONBOARDING_STEPS, steps)
+                putExtra(EXTRA_LOGO_RESOURCE, logoResource)
+                putExtra(EXTRA_FLIP_LAYOUT, flipLayout)
             }
         }
     }
@@ -35,6 +53,9 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
         AndroidInjection.inject(this)
+
+        onboardingAdapter = OnboardingAdapter(this,
+            intent.getBooleanExtra(EXTRA_FLIP_LAYOUT, false))
         onboardingTracker.setAccessibilityUserProperty()
         onboardingTracker.trackWelcomeScreenOpened()
 
@@ -58,6 +79,8 @@ class OnboardingActivity : AppCompatActivity() {
                 }
             }
         })
+
+        setupLogo(intent.getIntExtra(EXTRA_LOGO_RESOURCE, -1))
     }
 
     private fun setButtonClickListeners() {
@@ -74,5 +97,14 @@ class OnboardingActivity : AppCompatActivity() {
         pager_onboarding.adapter = onboardingAdapter
         view_indicator.attachViewPager(pager_onboarding,
             resources.getDrawable(R.drawable.circle_black))
+    }
+
+    private fun setupLogo(@DrawableRes logoResource: Int) {
+        if (logoResource != -1) {
+            image_logo.setImageResource(logoResource)
+            image_logo.visibility = View.VISIBLE
+        } else {
+            image_logo.visibility = View.GONE
+        }
     }
 }
