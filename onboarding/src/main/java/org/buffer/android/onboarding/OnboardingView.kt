@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.view_onboarding.view.image_onboarding
 import kotlinx.android.synthetic.main.view_onboarding.view.text_description
 import kotlinx.android.synthetic.main.view_onboarding.view.text_title
+import org.buffer.android.onboarding.util.DisplayMetricsUtil
 
 class OnboardingView @JvmOverloads constructor(
     context: Context,
@@ -20,6 +21,8 @@ class OnboardingView @JvmOverloads constructor(
     init {
         orientation = VERTICAL
         layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
+        val padding = DisplayMetricsUtil.dpToPx(16)
+        setPadding(padding, 0, padding, 0)
         if (flipLayout) {
             LayoutInflater.from(context)
                 .inflate(R.layout.view_onboarding_flipped, this)
