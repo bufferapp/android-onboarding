@@ -10,7 +10,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="18dp"
         android:gravity="center_horizontal"
-        android:maxWidth="200dp"
+        android:maxWidth="340dp"
         android:textColor="@color/text_primary"
         android:textSize="@dimen/text_large_body"
         android:textStyle="bold"/>
