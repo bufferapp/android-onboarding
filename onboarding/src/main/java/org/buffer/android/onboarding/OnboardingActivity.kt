@@ -14,10 +14,8 @@ import javax.inject.Inject
 class OnboardingActivity : AppCompatActivity() {
 
     @Inject lateinit var onboardingCoordinator: OnboardingNavigator
-    @Inject lateinit var onboardingTracker: OnboardingAnalytics
 
     private lateinit var onboardingAdapter: OnboardingAdapter
-    private var hasTrackedOnboardingInteraction = false
 
     companion object {
 
@@ -56,8 +54,6 @@ class OnboardingActivity : AppCompatActivity() {
 
         onboardingAdapter = OnboardingAdapter(this,
             intent.getBooleanExtra(EXTRA_FLIP_LAYOUT, false))
-        onboardingTracker.setAccessibilityUserProperty()
-        onboardingTracker.trackWelcomeScreenOpened()
 
         setButtonClickListeners()
         setupOnboardingPager(
@@ -72,12 +68,7 @@ class OnboardingActivity : AppCompatActivity() {
                 positionOffsetPixels: Int
             ) { }
 
-            override fun onPageSelected(position: Int) {
-                if (!hasTrackedOnboardingInteraction) {
-                    hasTrackedOnboardingInteraction = true
-                    onboardingTracker.trackOnboardingInteractedWith()
-                }
-            }
+            override fun onPageSelected(position: Int) { }
         })
 
         setupLogo(intent.getIntExtra(EXTRA_LOGO_RESOURCE, -1))
