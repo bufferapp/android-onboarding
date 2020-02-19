@@ -53,6 +53,8 @@ class OnboardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
+        onboardingListener =
+            intent.getSerializableExtra(EXTRA_ONBOARDING_LISTENER) as OnboardingListener
         onboardingAdapter = OnboardingAdapter(this,
             intent.getBooleanExtra(EXTRA_FLIP_LAYOUT, false))
 
