@@ -1,8 +1,9 @@
 package org.buffer.android.onboarding
 
 import android.app.Activity
+import java.io.Serializable
 
-interface OnboardingNavigator {
+interface OnboardingListener: Serializable {
 
     fun showSignUpForm(activity: Activity)
 

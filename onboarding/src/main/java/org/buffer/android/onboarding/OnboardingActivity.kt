@@ -7,20 +7,19 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_onboarding.*
-import javax.inject.Inject
 
 class OnboardingActivity : AppCompatActivity() {
 
-    @Inject lateinit var onboardingCoordinator: OnboardingNavigator
-
+    private lateinit var onboardingListener: OnboardingListener
     private lateinit var onboardingAdapter: OnboardingAdapter
 
     companion object {
 
         const val EXTRA_ONBOARDING_STEPS =
             "org.buffer.android.onboarding.OnboardingActivity.EXTRA_ONBOARDING_STEPS"
+        const val EXTRA_ONBOARDING_LISTENER =
+            "org.buffer.android.onboarding.OnboardingActivity.EXTRA_ONBOARDING_LISTENER"
         const val EXTRA_FLIP_LAYOUT =
             "org.buffer.android.onboarding.OnboardingActivity.EXTRA_REVERSE_LAYOUT"
         const val EXTRA_LOGO_RESOURCE =
@@ -28,19 +27,22 @@ class OnboardingActivity : AppCompatActivity() {
 
         fun getStartIntent(
             context: Context,
-            steps: ArrayList<OnboardingStep>
+            steps: ArrayList<OnboardingStep>,
+            onboardingListener: OnboardingListener
         ): Intent {
-            return getStartIntent(context, steps, -1, false)
+            return getStartIntent(context, steps, onboardingListener, -1, false)
         }
 
         fun getStartIntent(
             context: Context,
             steps: ArrayList<OnboardingStep>,
+            onboardingListener: OnboardingListener,
             @DrawableRes logoResource: Int,
             flipLayout: Boolean = true
         ): Intent {
             return Intent(context, OnboardingActivity::class.java).apply {
                 putParcelableArrayListExtra(EXTRA_ONBOARDING_STEPS, steps)
+                putExtra(EXTRA_ONBOARDING_LISTENER, onboardingListener)
                 putExtra(EXTRA_LOGO_RESOURCE, logoResource)
                 putExtra(EXTRA_FLIP_LAYOUT, flipLayout)
             }
@@ -50,7 +52,6 @@ class OnboardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
-        AndroidInjection.inject(this)
 
         onboardingAdapter = OnboardingAdapter(this,
             intent.getBooleanExtra(EXTRA_FLIP_LAYOUT, false))
@@ -76,10 +77,10 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun setButtonClickListeners() {
         button_new_user.setOnClickListener {
-            onboardingCoordinator.showSignUpForm(this)
+            onboardingListener.showSignUpForm(this)
         }
         button_existing_user.setOnClickListener {
-            onboardingCoordinator.showSignInForm(this)
+            onboardingListener.showSignInForm(this)
         }
     }
 
