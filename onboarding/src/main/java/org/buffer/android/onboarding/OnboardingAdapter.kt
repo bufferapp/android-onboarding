@@ -4,9 +4,8 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
-import javax.inject.Inject
 
-class OnboardingAdapter @Inject constructor(
+class OnboardingAdapter constructor(
     private val context: Context,
     private val flipLayout: Boolean
 ) : PagerAdapter() {
