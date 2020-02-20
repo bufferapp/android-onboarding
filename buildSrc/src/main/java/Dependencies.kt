@@ -49,7 +49,7 @@ object Versions {
     val room_android_x = "2.0.0"
     val beacon = "1.0.1"
     val facebookLogin = "5.0.1"
-    val bufferComponents = "0.1"
+    val bufferComponents = "0.8"
     val counterView = "-115e659a89"
 
     val glassfishAnnotation = "10.0-b28"
