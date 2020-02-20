@@ -1,15 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
     }
 
     buildTypes {
@@ -48,14 +47,9 @@ configurations.all {
 
 dependencies {
     implementation Deps.appcompat_v7
-    implementation Deps.kotlin
-    implementation Deps.javax_inject
     implementation Deps.buffer_components
-
-    implementation Deps.dagger
-    implementation Deps.dagger_support
-    kapt Deps.dagger_compiler
-    kapt Deps.dagger_processor
+    implementation Deps.kotlin
+    implementation Deps.material
 }
 
 publish {

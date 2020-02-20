@@ -54,15 +54,13 @@
             android:orientation="vertical">
 
             <org.buffer.android.components.RoundedButton
-                android:id="@+id/button_new_user"
-                style="@style/RoundedButtonStyle"
+                android:id="@+id/newUserButton"
                 android:layout_marginBottom="10dp"
                 android:text="@string/label_onboarding_new_user"
                 app:bufferButtonStyle="light"/>
 
             <org.buffer.android.components.RoundedButton
-                android:id="@+id/button_existing_user"
-                style="@style/RoundedButtonStyle"
+                android:id="@+id/existingUserButton"
                 android:text="@string/label_onboarding_existing_user"
                 app:bufferButtonStyle="clear"/>
 

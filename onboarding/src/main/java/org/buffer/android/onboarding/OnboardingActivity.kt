@@ -78,10 +78,10 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun setButtonClickListeners() {
-        button_new_user.setOnClickListener {
+        newUserButton.setOnClickListener {
             onboardingListener.showSignUpForm(this)
         }
-        button_existing_user.setOnClickListener {
+        existingUserButton.setOnClickListener {
             onboardingListener.showSignInForm(this)
         }
     }

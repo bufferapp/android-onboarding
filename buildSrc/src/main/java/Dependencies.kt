@@ -11,7 +11,7 @@ object Versions {
     val javaxInject = "1"
     val pusher = "1.6.0"
     val sqlBrite = "2.0.0"
-    val material = "1.0.0"
+    val material = "1.1.0"
     val gson = "2.8.5"
     val hamcrest = "1.3"
     val twitterText = "2.0.8"
