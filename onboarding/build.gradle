@@ -57,7 +57,7 @@ publish {
     userOrg = 'buffer'
     groupId = 'org.buffer.android'
     artifactId = 'buffer-onboarding'
-    publishVersion = '0.16'
+    publishVersion = '0.17'
     desc = 'Onboarding component used in Buffer android apps'
     website = 'https://github.com/bufferapp/android-onboarding'
 }
