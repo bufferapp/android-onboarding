@@ -57,6 +57,7 @@
                     android:id="@+id/newUserButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
                     android:text="@string/label_onboarding_new_user"
                     app:bufferButtonStyle="light" />
@@ -65,6 +66,7 @@
                     android:id="@+id/existingUserButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/label_onboarding_existing_user"
                     app:bufferButtonStyle="clear" />
 
