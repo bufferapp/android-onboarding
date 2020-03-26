@@ -41,7 +41,7 @@ android {
 }
 
 configurations.all {
-    resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.3.21'
+    resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70'
     resolutionStrategy.force 'org.jetbrains:annotations:16.0.1'
 }
 
