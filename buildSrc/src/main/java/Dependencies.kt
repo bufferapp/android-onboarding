@@ -2,7 +2,7 @@ object Versions {
     val minSdk = 21
     val targetSdk = 28
     val compileSdk = 28
-    val kotlin = "1.3.21"
+    val kotlin = "1.3.70"
     val dagger = "2.16"
     val rxKotlin = "2.0.3"
     val rxJava = "2.0.7"
@@ -20,7 +20,7 @@ object Versions {
     val navigationComponent = "1.0.0"
     val imageCropper = "2.8.0"
     val thumby = "666142a778"
-    val socialLinkify = "1.1"
+    val socialLinkify = "1.4"
     val jodaTime = "2.10.1"
     val rxBinding = "0.4.0"
     val rxBinding2 = "2.0.0"
@@ -49,7 +49,7 @@ object Versions {
     val room_android_x = "2.0.0"
     val beacon = "1.0.1"
     val facebookLogin = "5.0.1"
-    val bufferComponents = "0.15"
+    val bufferComponents = "0.16"
     val counterView = "-115e659a89"
 
     val glassfishAnnotation = "10.0-b28"
