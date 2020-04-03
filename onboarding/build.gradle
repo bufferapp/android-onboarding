@@ -41,7 +41,7 @@ android {
 }
 
 configurations.all {
-    resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70'
+    resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.3.71'
     resolutionStrategy.force 'org.jetbrains:annotations:16.0.1'
 }
 
@@ -57,7 +57,7 @@ publish {
     userOrg = 'buffer'
     groupId = 'org.buffer.android'
     artifactId = 'buffer-onboarding'
-    publishVersion = '1.1'
+    publishVersion = '1.2'
     desc = 'Onboarding component used in Buffer android apps'
     website = 'https://github.com/bufferapp/android-onboarding'
 }

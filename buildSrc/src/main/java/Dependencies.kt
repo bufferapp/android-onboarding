@@ -2,7 +2,7 @@ object Versions {
     val minSdk = 21
     val targetSdk = 28
     val compileSdk = 28
-    val kotlin = "1.3.70"
+    val kotlin = "1.3.71"
     val dagger = "2.16"
     val rxKotlin = "2.0.3"
     val rxJava = "2.0.7"
