@@ -34,8 +34,14 @@ class OnboardingView @JvmOverloads constructor(
 
     fun setOnboardingStep(onboardingStep: OnboardingStep) {
         text_title.text = context.getString(onboardingStep.titleResource)
-        if (!flipLayout) text_description.text = context.getString(onboardingStep.descriptionResource)
-        image_onboarding.setImageDrawable(ContextCompat.getDrawable(context,
-            onboardingStep.imageResource))
+        if (!flipLayout && onboardingStep.descriptionResource != null) {
+            text_description.text = context.getString(onboardingStep.descriptionResource)
+        }
+        image_onboarding.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                onboardingStep.imageResource
+            )
+        )
     }
 }

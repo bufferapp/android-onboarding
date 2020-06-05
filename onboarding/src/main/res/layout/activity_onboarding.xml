@@ -49,24 +49,28 @@
                 android:layout_marginBottom="24dp" />
 
         <LinearLayout
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
             <org.buffer.android.components.RoundedButton
                     android:id="@+id/newUserButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="10dp"
                     android:text="@string/label_onboarding_new_user"
                     app:bufferButtonStyle="light" />
 
             <org.buffer.android.components.RoundedButton
                     android:id="@+id/existingUserButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:text="@string/label_onboarding_existing_user"
                     app:bufferButtonStyle="clear" />
 
