@@ -3,6 +3,7 @@ package org.buffer.android.onboarding
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
@@ -36,6 +37,8 @@ class OnboardingView @JvmOverloads constructor(
         text_title.text = context.getString(onboardingStep.titleResource)
         if (!flipLayout && onboardingStep.descriptionResource != null) {
             text_description.text = context.getString(onboardingStep.descriptionResource)
+        } else {
+            text_description.visibility = View.GONE
         }
         image_onboarding.setImageDrawable(
             ContextCompat.getDrawable(
