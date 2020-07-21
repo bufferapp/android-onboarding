@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="buffer_gray_heading">#636363</color>
+    <color name="buffer_gray_body">#8b959e</color>
+    <color name="color_accent">#004CFF</color>
+    <color name="window_background">#ffffff</color>
+
+    <color name="text_primary">#3D3D3D</color>
+    <color name="text_secondary">#636363</color>
+</resources>
