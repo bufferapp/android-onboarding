@@ -92,7 +92,7 @@ object Deps {
     val support_v4 = "com.android.support:support-v4:${Versions.supportLibrary}"
     val constraint_layout = "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}"
     val material = "com.google.android.material:material:${Versions.material}"
-    val buffer_components = "org.buffer.android:android-components:${Versions.bufferComponents}"
+    val buffer_components = "com.github.bufferapp:android-components:503b7ea"
     val counter_view = "com.github.bufferapp:CounterView:${Versions.counterView}"
 
     val javax_annotation = "javax.annotation:jsr250-api:${Versions.javaxAnnotation}"
